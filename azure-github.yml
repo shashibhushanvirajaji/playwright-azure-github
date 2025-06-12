@@ -22,3 +22,10 @@ steps:
 
 - script: npx playwright test
   displayName: 'Run playwright tests'
+
+- task: PublishPipelineArtifact@1
+  inputs:
+    targetPath: 'playwright-report'
+    artifact: 'Playwright HTML Report'
+    publishLocation: 'pipeline'
+  condition: always()
